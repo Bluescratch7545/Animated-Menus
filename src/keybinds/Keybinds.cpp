@@ -17,8 +17,17 @@ $execute {
 
     new EventListener([=](InvokeBindEvent* event) {
         if (event->isDown()) {
-            openSettingsPopup(Mod::get(), false);
-            log::info("Settings_Menu::STATE: Open");
+            geode::createQuickPopup(
+                "Animated Menus",
+                "Do You Want To Open The Settings Menu?",
+                "No", "Yes",
+                [](auto, bool btn2) {
+                    if (btn2) {
+                        openSettingsPopup(Mod::get(), false);
+                        log::info("Settings_Menu::STATE: Open");
+                    }
+                }
+            );
         }
         return ListenerResult::Propagate;
     }, InvokeBindFilter(nullptr, "open-settings-bm"_spr));

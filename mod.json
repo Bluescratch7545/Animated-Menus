@@ -8,7 +8,7 @@
 	},
 	"id": "bluescratch.animated_menus",
 	"name": "Animated Menus",
-	"version": "v1.0.0-beta.1",
+	"version": "v1.0.0-beta.2",
 	"developer": "Bluescratch",
 	"description": "Animates (Some) GD Menus!",
 	"dependencies": {
@@ -50,7 +50,8 @@
 				"slider": true
 			},
 			"min": 0,
-			"max": 5
+			"max": 5,
+			"description": "The speed at which the animations happen, can be changed without breaking the mod"
 		}
 	},
 	"links": {

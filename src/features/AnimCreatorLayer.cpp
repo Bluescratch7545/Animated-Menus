@@ -3,7 +3,6 @@
 
 using namespace geode::prelude;
 
-#include "../includes/winSize.hpp"
 #include "../includes/settings.hpp"
 
 class $modify(AnimCreatorLayer, CreatorLayer) {
@@ -13,6 +12,9 @@ class $modify(AnimCreatorLayer, CreatorLayer) {
 
         // If enable Is Not True, The Mod Will Not Work
         if (enable()) {
+            // Define winSize
+            auto winSize = CCDirector::sharedDirector()->getWinSize();
+
             // Define creatorButtonsMenu
             auto creatorButtonsMenu = getChildByID("creator-buttons-menu");
 
@@ -103,5 +105,3 @@ class $modify(AnimCreatorLayer, CreatorLayer) {
         return true;
     }
 };
-// 106.50
-// 45
