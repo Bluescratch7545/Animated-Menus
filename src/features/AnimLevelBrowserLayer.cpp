@@ -11,63 +11,49 @@ class $modify(AnimLevelBrowserLayer, LevelBrowserLayer) {
         if (!LevelBrowserLayer::init(object)) return false;
 
         if(enable()) {
-            // Define GJListLayer
             auto GJListLayer = getChildByID("GJListLayer");
 
-            // Move it
+            // GJLL is GJListLayer
             float startGJLLY = 1000.0f;
             auto GJListLayerXPos = GJListLayer->getPositionX();
             auto targetGJLLY = GJListLayer->getPositionY();
 
-            // Start it off screen
             GJListLayer->setPositionY(startGJLLY);
 
-            // Define movement
             auto lyrGJLLMoveAction = CCMoveTo::create(speed(), CCPoint{GJListLayerXPos, targetGJLLY});
             auto easeLyrGJLLMoveAction = CCEaseBackOut::create(lyrGJLLMoveAction);
 
-            // Run action
             GJListLayer->runAction(easeLyrGJLLMoveAction);
 
-            // Define deleteMenu
-            auto deleteMenu = getChildByID("delete-menu");
+            if(auto deleteMenu = getChildByID("delete-menu")) {
+                // DM is deleteMenu
+                float startDMY = 1000.0f;
+                auto deleteMenuXPos = deleteMenu->getPositionX();
+                auto targetDMY = deleteMenu->getPositionY();
 
-            // Move it
-            float startDMY = 1000.0f;
-            auto deleteMenuXPos = deleteMenu->getPositionX();
-            auto targetDMY = deleteMenu->getPositionY();
+                deleteMenu->setPositionY(startDMY);
 
-            // Start it off screen
-            deleteMenu->setPositionY(startDMY);
+                auto mnuDMMoveAction = CCMoveTo::create(speed() + 0.5f, CCPoint{deleteMenuXPos, targetDMY});
+                auto easeMnuDMMoveAction = CCEaseBackOut::create(mnuDMMoveAction);
 
-            // Define movement
-            auto mnuDMMoveAction = CCMoveTo::create(speed() + 0.5f, CCPoint{deleteMenuXPos, targetDMY});
-            auto easeMnuDMMoveAction = CCEaseBackOut::create(mnuDMMoveAction);
+                deleteMenu->runAction(easeMnuDMMoveAction);
 
-            // Run action
-            deleteMenu->runAction(easeMnuDMMoveAction);
+                auto selectAllText = getChildByID("select-all-text");
 
-            // Define selectAllText
-            auto selectAllText = getChildByID("select-all-text");
+                // SAT is selectAllText
+                float startSATY = 1000.0f;
+                auto selectAllTextXPos = selectAllText->getPositionX();
+                auto targetSATY = selectAllText->getPositionY();
 
-            // Move it
-            float startSATY = 1000.0f;
-            auto selectAllTextXPos = selectAllText->getPositionX();
-            auto targetSATY = selectAllText->getPositionY();
+                selectAllText->setPositionY(startSATY);
 
-            // Start it off screen
-            selectAllText->setPositionY(startSATY);
+                auto txtSATMoveAction = CCMoveTo::create(speed() + 0.5f, CCPoint{selectAllTextXPos, targetSATY});
+                auto easeTxtSATMoveAction = CCEaseBackOut::create(txtSATMoveAction);
 
-            // Define movement
-            auto txtSATMoveAction = CCMoveTo::create(speed() + 0.5f, CCPoint{selectAllTextXPos, targetSATY});
-            auto easeTxtSATMoveAction = CCEaseBackOut::create(txtSATMoveAction);
-
-            // Run action
-            selectAllText->runAction(easeTxtSATMoveAction);
+                selectAllText->runAction(easeTxtSATMoveAction);
+            }
         }
         
         return true;
     }
 };
-
-// GJListLayer

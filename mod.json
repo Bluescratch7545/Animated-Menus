@@ -8,7 +8,7 @@
 	},
 	"id": "bluescratch.animated_menus",
 	"name": "Animated Menus",
-	"version": "v1.0.0-beta.2",
+	"version": "v1.0.0-beta.3",
 	"developer": "Bluescratch",
 	"description": "Animates (Some) GD Menus!",
 	"dependencies": {
@@ -28,13 +28,13 @@
 	"settings": {
 		"anim-menus-settings": {
 			"type": "title",
-			"name": "Animated Menus Settings"
+			"name": "Animated menus settings"
 		},
 		"enable-mod": {
 			"type": "bool",
 			"name": "Enable Mod",
 			"default": true,
-			"description": "Enables or Disables The Mod"
+			"description": "Enables or disables the mod"
 		},
 		"speed": {
 			"type": "int",
