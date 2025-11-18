@@ -16,7 +16,7 @@
 			"importance": "required",
 			"version": ">=v1.20.0",
 			"platforms": [
-				"win", "mac", "android", "desktop"
+				"win", "mac", "android"
 			]
 		},
 		"geode.custom-keybinds": {
