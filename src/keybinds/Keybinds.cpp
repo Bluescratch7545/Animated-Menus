@@ -4,15 +4,18 @@
 #include <Geode/ui/GeodeUI.hpp>
 
 using namespace geode::prelude;
+
+#include "../includes/version.hpp"
+
 using namespace keybinds;
 
 $execute {
     BindManager::get()->registerBindable({
-        "open-settings-bm"_spr,
-        "Better Menus: Open Settings",
-        "Open Better Menus Settings",
+        "open-settings-am"_spr,
+        "Animated Menus: Open Settings",
+        "Open Animated Menus Settings",
         { Keybind::create(KEY_F8, Modifier::None) },
-        "Better Menus/Open Settings"
+        "Animated Menus/Open Settings"
     });
 
     new EventListener([=](InvokeBindEvent* event) {
@@ -30,6 +33,25 @@ $execute {
             );
         }
         return ListenerResult::Propagate;
-    }, InvokeBindFilter(nullptr, "open-settings-bm"_spr));
+    }, InvokeBindFilter(nullptr, "open-settings-am"_spr));
+
+    BindManager::get()->registerBindable({
+        "show-version"_spr,
+        "Animated Menus: Show Newest Version",
+        "Show Newest Version",
+        { Keybind::create(KEY_F9, Modifier::None)},
+        "Animated Menus/Show Version"
+    });
+
+    new EventListener([=](InvokeBindEvent* event) {
+        if (event->isDown()) {
+            FLAlertLayer::create(
+                "Animated Menus",
+                fmt::format("Newest Version Is: \n<cg>{}</c>", version),
+                "OK"
+            )->show();
+        }
+        return ListenerResult::Propagate;
+    }, InvokeBindFilter(nullptr, "show-version"_spr));
 };
 #endif

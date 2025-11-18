@@ -1,3 +1,7 @@
+# 1.0.0-beta.4
+barely even an update
+- Added Version View For Keybinds
+
 # 1.0.0-beta.3
 A Bugfix update
 - Fixed crash on trying to view levels where there isnt the trashcan
