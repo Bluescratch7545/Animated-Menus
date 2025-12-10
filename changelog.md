@@ -1,3 +1,6 @@
+# 1.0.0-beta.5
+- Fixed my stupid error
+
 # 1.0.0-beta.4
 barely even an update
 - Added Version View For Keybinds
